@@ -28,9 +28,19 @@ while True:
     # draw rectangles in the car frames
     for pedestrian in pedestrians:
         (x,y,w,h) = pedestrian
+        cv2.rectangle(frame, (x+2,y+2), (x+w, y+h), (0, 0, 255), 2)
+    for pedestrian in pedestrians:
+        (x,y,w,h) = pedestrian
         cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 255), 2)
     #Display the image with the pedestrians spotted
     # cv2.imshow("Car Test Image", black_n_white_img)
     cv2.imshow("Car Moving", frame)
     # To avoid autoclose (wait and listen for the close key)
-    cv2.waitKey(1) 
+    key = cv2.waitKey(1) 
+    
+    # stop when q is pressed
+    if key==81 or key==113:
+        break
+    
+    
+video.release()

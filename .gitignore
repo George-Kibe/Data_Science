@@ -8,7 +8,7 @@ git clone https://github.com/kuleshov/cornell-cs5785-2020-applied-ml.git .
 __pycache__/
 *.py[cod]
 *$py.class
-
+Explore/
 # C extensions
 *.so
 

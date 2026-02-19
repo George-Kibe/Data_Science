@@ -1,0 +1,24 @@
+apiVersion: apps/v1kind: StatefulSet
+metadata:
+  name: datacamp-statefulset
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: datacamp-statefulset
+  template:
+    metadata:
+      labels:
+        app: datacamp-statefulset
+    spec:
+      terminationGracePeriodSeconds: 5
+      containers:
+      - name: alpine
+        image: alpine:3.19.1
+        command:
+        - sleep
+        - "3600"
+
+
+# kubectl apply -f 01_statefulset.yml
+# kubectl scale statefulset datacamp-statefulset --replicas 10
